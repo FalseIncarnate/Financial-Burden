@@ -443,7 +443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608537130
 GameObject:
@@ -472,7 +472,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1608537133
 MonoBehaviour:
@@ -502,4 +502,5 @@ MonoBehaviour:
   sale_counter: {fileID: 1623496610254122, guid: fc80460f743917e42b4bdc69ec93097c,
     type: 2}
   challenge_rooms: []
+  target_obj: {fileID: 1212719193556256, guid: 26f69cf929d1bb44780e0e9bc1b1f96d, type: 2}
   player: {fileID: 1328315359860364, guid: 76d0e3223679e0d42bc5e0faaaf5de58, type: 2}

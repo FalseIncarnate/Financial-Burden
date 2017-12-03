@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class Coin : Item {
 
+    public int value = 1;
+
     // Use this for initialization
     void Start() {
         item_name = "Money";
@@ -12,7 +14,7 @@ public class Coin : Item {
     }
 
     internal override void Consume(GameObject consumer, Inventory inv) {
-        inv.AdjustCoins(1);
+        inv.AdjustCoins(value);
         base.Consume(consumer, inv);
     }
 

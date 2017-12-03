@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 907f00b8d374b7c4fb811eb8cb647209
-timeCreated: 1512257866
+timeCreated: 1512339014
 licenseType: Free
 MonoImporter:
   externalObjects: {}
@@ -25,6 +25,8 @@ MonoImporter:
   - piggy_bank: {fileID: 1625649972726962, guid: 805afb0dfdd17cd46b520cfdd87299c6,
       type: 2}
   - sale_counter: {fileID: 1623496610254122, guid: fc80460f743917e42b4bdc69ec93097c,
+      type: 2}
+  - target_obj: {fileID: 1212719193556256, guid: 26f69cf929d1bb44780e0e9bc1b1f96d,
       type: 2}
   - player: {fileID: 1328315359860364, guid: 76d0e3223679e0d42bc5e0faaaf5de58, type: 2}
   executionOrder: 0

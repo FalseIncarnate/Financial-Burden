@@ -37,11 +37,13 @@ public class Door : Interactable_Object {
             if(lm.build_shop_room(newX, newY)) {
                 transform.gameObject.SetActive(false);
                 used = true;
+                Destroy(gameObject);
             }
         } else {
             if(lm.build_new_room(newX, newY, vert_door)) {
                 transform.gameObject.SetActive(false);
                 used = true;
+                Destroy(gameObject);
             }
         }
     }

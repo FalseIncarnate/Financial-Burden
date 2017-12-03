@@ -14,14 +14,14 @@ public class Inventory : MonoBehaviour
 
     internal GameObject holder;
     internal Movable_Object holder_script;
-    protected BoxCollider2D holder_collider;
+    internal BoxCollider2D holder_collider;
 
     internal const int NORTH = 1;
     internal const int EAST = 2;
     internal const int SOUTH = 4;
     internal const int WEST = 8;
 
-    GameManager gm;
+    internal GameManager gm;
 
     // Use this for initialization
     void Start() {
@@ -45,7 +45,9 @@ public class Inventory : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
+        if(heldObjectScript && heldObjectScript.held_update) {
+            heldObjectScript.HeldUpdate();
+        }
     }
 
     internal void UpdateCoinWeight() {
@@ -85,7 +87,6 @@ public class Inventory : MonoBehaviour
 
     internal void FailPickup() {
         gm.ui.InteractText("Your hands are full!");
-        Debug.Log("Failed pickup! Hands are full!");
     }
 
     internal void AttemptDrop() {
@@ -100,6 +101,7 @@ public class Inventory : MonoBehaviour
     }
 
     internal void Expend() {
+        Destroy(heldObject);
         heldObject = null;
         heldObjectScript = null;
         gm.ui.UpdateUI();
@@ -114,7 +116,23 @@ public class Inventory : MonoBehaviour
     }
 
     internal void DefaultInteract() {
-        Vector3 target_dir = holder.transform.position;
+        Vector3 target_dir = GetTargetDir(holder.transform.position);
+        BoxCollider2D holder_collider = holder.GetComponent<BoxCollider2D>();
+        holder_collider.enabled = false;
+        RaycastHit2D hit = Physics2D.Linecast(holder.transform.position, target_dir);
+        holder_collider.enabled = true;
+        if(hit.transform == null) {
+            return;
+        }
+        Interactable_Object target = hit.collider.gameObject.GetComponent<Interactable_Object>();
+        if(!target) {
+            return;
+        }
+        target.AttemptInteract(this);
+    }
+
+    internal Vector3 GetTargetDir(Vector3 start) {
+        Vector3 target_dir = start;
         switch(holder_script.facing_dir) {
             case NORTH:
                 target_dir += Vector3.up;
@@ -129,17 +147,6 @@ public class Inventory : MonoBehaviour
                 target_dir += Vector3.left;
                 break;
         }
-        BoxCollider2D holder_collider = holder.GetComponent<BoxCollider2D>();
-        holder_collider.enabled = false;
-        RaycastHit2D hit = Physics2D.Linecast(holder.transform.position, target_dir);
-        holder_collider.enabled = true;
-        if(hit.transform == null) {
-            return;
-        }
-        Interactable_Object target = hit.collider.gameObject.GetComponent<Interactable_Object>();
-        if(!target) {
-            return;
-        }
-        target.AttemptInteract(this);
+        return target_dir;
     }
 }

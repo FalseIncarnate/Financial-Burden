@@ -31,6 +31,8 @@ public class LevelManager : MonoBehaviour {
 
     public GameObject[] challenge_rooms;
 
+    public GameObject target_obj;
+
     public GameObject player;
 
     private Transform lvl_holder;
@@ -206,6 +208,17 @@ public class LevelManager : MonoBehaviour {
             redistribute_wealth(room, x_offset, y_offset, vert_room);
         }
 
+        float target_chance = 5f;
+        if(vert_room) {
+            target_chance = 25f;
+        }
+        if(Random.Range(0, 100) < target_chance) {
+            Debug.Log("Lining up a shot");
+            Vector3 target_pos = new Vector3(x_offset + (int)(lvl_cols / 2), y_offset + (int)(lvl_rows / 2), 0f);
+            GameObject target_instance = Instantiate(target_obj, target_pos, Quaternion.identity);
+            target_instance.transform.SetParent(room);
+        }
+
         room.SetParent(lvl_holder);
         return true;
     }
@@ -225,7 +238,7 @@ public class LevelManager : MonoBehaviour {
 
     internal bool build_challenge_room(float newX, float newY) {
         int x_offset = (int)newX;
-        int y_offset = (int)newY + (int)(lvl_rows / 2) -1;
+        int y_offset = (int)newY + (int)(lvl_rows / 2);
 
         string room_name = "Challenge" + challenges.ToString();
         challenges++;
