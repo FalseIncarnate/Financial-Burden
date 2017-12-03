@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 907f00b8d374b7c4fb811eb8cb647209
+timeCreated: 1512257866
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - grass: {fileID: 1020115533724520, guid: 15a38b38ceb0d62469f40937932eb868, type: 2}
+  - dirt: {fileID: 1296331272183410, guid: 6ca24f6d0be52ed44a0afddca466d781, type: 2}
+  - coin: {fileID: 1564744230389782, guid: cca9deaf92c7c1c47861f9a1e4b3ab23, type: 2}
+  - stone: {fileID: 1739394768468090, guid: dcc8943bd07e25c4090bac7c6c2aeb09, type: 2}
+  - room_door: {fileID: 1742479254961578, guid: 3957a81454ff45d4ea7e6ece4c8a95ad,
+      type: 2}
+  - challenge_door: {fileID: 1906309163445568, guid: a1c145d2edb303440919534aa293b71d,
+      type: 2}
+  - shop_door: {fileID: 1418321410244184, guid: 2e60e76e810774e469d8df5dff9008a6,
+      type: 2}
+  - shop_room: {fileID: 1515620001847142, guid: b16d090285d0e2545aa689bd1e5d7289,
+      type: 2}
+  - shop_floor: {fileID: 1292248627814908, guid: 6396407785c076c4380e53f2f2cec4ae,
+      type: 2}
+  - start_shop: {fileID: 1360367946326136, guid: a50679442ad618b48b66d92246c5a3e2,
+      type: 2}
+  - piggy_bank: {fileID: 1625649972726962, guid: 805afb0dfdd17cd46b520cfdd87299c6,
+      type: 2}
+  - sale_counter: {fileID: 1623496610254122, guid: fc80460f743917e42b4bdc69ec93097c,
+      type: 2}
+  - player: {fileID: 1328315359860364, guid: 76d0e3223679e0d42bc5e0faaaf5de58, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
